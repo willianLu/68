@@ -5,13 +5,16 @@ on:
       - master
       
 jobs:
-  build:
+  init:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v2
-      with:
-        node-version: '16'
+    with:
+      node-version: '16'
+  build:
+    needs: init
+    steps:
       run: ./deploy.sh
       shell: base
   
