@@ -5,15 +5,15 @@ on:
       - master
       
 jobs:
-  init:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      # 拉取 github 仓库代码
+      - uses: actions/checkout@v3
+      # 设定 node 环境
+      - uses: actions/setup-node@v3
         with:
           node-version: '16'
-  build:
-    needs: init
-    steps:
-      run: ./deploy.sh
+      - name: 构建
+        run: ./deploy.sh
   
