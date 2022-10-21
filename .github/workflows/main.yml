@@ -16,5 +16,4 @@ jobs:
     needs: init
     steps:
       run: ./deploy.sh
-      shell: base
   
