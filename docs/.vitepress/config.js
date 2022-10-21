@@ -1,4 +1,5 @@
 export default {
+  base: "/68/",
   title: "68号星球", //站点标题
   description: "这人间多美好，你怎能虚度年华，岁月不待人，行且珍惜，砥砺前行！", //mate标签description，多用于搜索引擎抓取摘要
   themeConfig: {
