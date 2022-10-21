@@ -10,7 +10,7 @@ hero:
 #     alt: Kitty
   actions:
     - theme: brand
-      text: 快来快来
+      text: 首页
       link: /blogs/HTTP跨域
 
 features:
