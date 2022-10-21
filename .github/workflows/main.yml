@@ -7,8 +7,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container:
-      options: --user root
     steps:
       # 拉取 github 仓库代码
       - uses: actions/checkout@v3
