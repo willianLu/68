@@ -1,0 +1,21 @@
+{
+    // "eslint.format.enable": true,
+    "editor.formatOnSave": true, // IDE保存时自动格式化
+    "editor.codeActionsOnSave": { // eslint保存时自动修复
+        "source.fixAll.eslint": true
+    },
+    "[json]": { // json文件格式化
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": { // js文件格式化
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": { // ts文件格式化
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[less]": {
+        "editor.defaultFormatter": "vscode.css-language-features"
+    },
+    "files.eol": "\n",
+    // "diffEditor.ignoreTrimWhitespace": false
+}
