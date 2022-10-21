@@ -14,6 +14,9 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '16'
+      - uses: webfactory/ssh-agent@v0.6.0
+          with:
+            ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
       - name: 构建
         run: ./deploy.sh
   
