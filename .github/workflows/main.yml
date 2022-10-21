@@ -1,0 +1,13 @@
+name: blog-build-ci
+on: 
+  push:
+    branches:
+      - master
+      
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: blog-build
+      run: ./deploy.sh
+  
