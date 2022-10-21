@@ -6,12 +6,16 @@
   "scripts": {
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
-    "serve": "vitepress serve docs"
+    "serve": "vitepress serve docs",
+    "deploy": "npm run build && node ./deploy.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "vitepress": "1.0.0-alpha.21"
+  },
+  "devDependencies": {
+    "simple-git": "^3.14.1"
   }
 }

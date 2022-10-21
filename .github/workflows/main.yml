@@ -1,26 +1,21 @@
-name: blog-build-ci
-on: 
-  push:
-    branches:
-      - master
+# name: blog-build-ci
+# on: 
+#   push:
+#     branches:
+#       - master
       
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      # 拉取 github 仓库代码
-      - uses: actions/checkout@v3
-      # 设定 node 环境
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '16'
-      - name: Deploy to Server
-        uses: easingthemes/ssh-deploy@main
-        env:
-            SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
-            REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-            REMOTE_USER: ${{ secrets.REMOTE_USER }}
-            TARGET: ${{ secrets.REMOTE_TARGET }}
-      - name: 构建
-        run: ./deploy.sh
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#       # 拉取 github 仓库代码
+#       - uses: actions/checkout@v3
+#       # 设定 node 环境
+#       - uses: actions/setup-node@v3
+#         with:
+#           node-version: '16'
+#       - name: 安装
+#         run: npm install
+#       - name: 构建
+#         run: npm run deploy
   

@@ -3,8 +3,6 @@
 # 忽略错误
 set -e
 
-# 安装npm包
-npm install
 # 构建
 npm run build
 
@@ -13,9 +11,6 @@ cd docs/.vitepress/dist
 
 # 如果是发布到自定义域名
 # echo 'www.example.com' > CNAME
-
-git config --global user.email "1013658157@qq.com"
-git config --global user.name "kunkun.lu"
 
 git init
 git add -A
