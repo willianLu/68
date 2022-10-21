@@ -3,6 +3,8 @@
 # 忽略错误
 set -e
 
+# 安装npm包
+npm install
 # 构建
 npm run build
 
