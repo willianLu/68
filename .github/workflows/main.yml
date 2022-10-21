@@ -10,13 +10,17 @@ jobs:
     steps:
       # 拉取 github 仓库代码
       - uses: actions/checkout@v3
-      - uses: webfactory/ssh-agent@v0.7.0
-          with:
-            ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
       # 设定 node 环境
       - uses: actions/setup-node@v3
         with:
           node-version: '16'
+      - name: Deploy to Server
+        uses: easingthemes/ssh-deploy@main
+        env:
+            SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
+            REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+            REMOTE_USER: ${{ secrets.REMOTE_USER }}
+            TARGET: ${{ secrets.REMOTE_TARGET }}
       - name: 构建
         run: ./deploy.sh
   
