@@ -1,25 +1,12 @@
 const simpleGit = require("simple-git");
 const log = require("../log");
 const config = require("../config");
-const { resolve } = require("../util");
+const { resolve, getDeployDate } = require("../util");
 const execa = require("../execa");
 const { getCurrentBranch, getGitStatus, syncGitRepository } = require("../git");
 
 // 获取git操作实例
 const git = simpleGit(resolve("./docs/.vitepress/dist"));
-
-// 当前日期
-function getDeployDate() {
-  const now = new Date();
-  return (
-    "" +
-    now.getFullYear() +
-    ("00" + (now.getMonth() + 1)).slice(-2) +
-    ("00" + now.getDate()).slice(-2) +
-    ("00" + now.getHours()).slice(-2) +
-    ("00" + now.getMinutes()).slice(-2)
-  );
-}
 
 /**
  * @description 判断是否满足发布分支规则
@@ -58,17 +45,13 @@ module.exports = async function deploy() {
   }
   // 构建博客
   const res = execa("vitepress build docs");
-  if (res.code === 0) {
-    log.success("博客构建成功!");
-    // 对打包完成的博客进行部署
-    execDeploy()
-      .then(() => {
-        log.success(`git部署操作成功`);
-      })
-      .catch(() => {
-        log.error(`git部署操作失败`);
-      });
-  } else {
-    log.error("博客构建失败!");
+  if (res.code !== 0) {
+    return log.error("博客构建失败!");
   }
+  log.success("博客构建成功!");
+  // 对打包完成的博客进行部署
+  await execDeploy().catch(() => {
+    log.error(`博客部署操作失败`);
+  });
+  log.success(`博客部署操作成功`);
 };

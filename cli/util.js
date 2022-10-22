@@ -64,6 +64,21 @@ function isString(data) {
   return judgeDataType(data, "string");
 }
 
+/**
+ * @description 获取当前时间
+ */
+function getDeployDate() {
+  const now = new Date();
+  return (
+    "" +
+    now.getFullYear() +
+    ("00" + (now.getMonth() + 1)).slice(-2) +
+    ("00" + now.getDate()).slice(-2) +
+    ("00" + now.getHours()).slice(-2) +
+    ("00" + now.getMinutes()).slice(-2)
+  );
+}
+
 module.exports = {
   resolve,
   bufferToString,
@@ -71,4 +86,5 @@ module.exports = {
   isString,
   isArray,
   isObject,
+  getDeployDate,
 };

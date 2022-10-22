@@ -2,25 +2,22 @@
 layout: home
 
 hero:
-  name: 68号星球
-  text: 未来人类秘密基地
-  tagline: 这人间多美好，你怎能虚度年华，岁月不待人，行且珍惜，砥砺前行！
-#   image:
-#     src: /logo.png
-#     alt: Kitty
+  name: 技术星球
+  text: 面向未来的技术
+  tagline: 技术与生活一个都不能少！
+  image:
+    src: /logo.png
+    alt: 技术星球
   actions:
     - theme: brand
-      text: 首页
-      link: /blogs/HTTP跨域
+      text: web前端
+      link: /web/
 
 features:
-  - icon: ⚡️
-    title: 这是一个闪电图标
-    details: wawawa
-  - icon:  
-    title: 这是一个手掌图标
-    details: good...
-  - icon:  ️
-    title: 这是一个修理图标
-    details: cocococo
+  - icon: 💻
+    title: 技术基地
+    details: 计算机知识学习与总结！
+  - icon: 😀
+    title: 持续技术学习
+    details: 微笑面对每一天！
 ---
