@@ -7,7 +7,7 @@
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
     "serve": "vitepress serve docs",
-    "deploy": "npm run build && node ./deploy.js"
+    "deploy": "node ./cli/index.js deploy"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +16,8 @@
     "vitepress": "1.0.0-alpha.21"
   },
   "devDependencies": {
+    "chalk": "4.1.2",
+    "commander": "9.4.0",
     "simple-git": "^3.14.1"
   }
 }
