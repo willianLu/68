@@ -5,9 +5,6 @@ const { resolve, getDeployDate } = require("../util");
 const execa = require("../execa");
 const { getCurrentBranch, getGitStatus, syncGitRepository } = require("../git");
 
-// 获取git操作实例
-const git = simpleGit(resolve("./docs/.vitepress/dist"));
-
 /**
  * @description 判断是否满足发布分支规则
  */
@@ -30,6 +27,8 @@ async function judgeDeployBranchRule() {
  * @description 执行发布
  */
 function execDeploy() {
+  // 获取git操作实例
+  const git = simpleGit(resolve("./docs/.vitepress/dist"));
   const str = getDeployDate();
   return git
     .init()
@@ -44,7 +43,7 @@ module.exports = async function deploy() {
     return log.error("分支不满发布规则");
   }
   // 构建博客
-  const res = execa("vitepress build docs");
+  const res = await execa("npm run build");
   if (res.code !== 0) {
     return log.error("博客构建失败!");
   }
